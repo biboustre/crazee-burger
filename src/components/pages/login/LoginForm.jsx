@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
-      // State
-  const [prenom, setPrenom] = useState("");
+  // State
+  const [inputValue, setInputValue] = useState("");
+  const navigate = useNavigate();
   //   Comportement
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Bienvenue, ${prenom} !`);
-    setPrenom("");
+    setInputValue("");
+    navigate(`order/${inputValue}`); // Redirection vers la page order avec le prénom en paramètre
   };
 
   const handleChange = (e) => {
-    setPrenom(e.target.value);
+    setInputValue(e.target.value);
   };
   return (
     <form action="submit" onSubmit={handleSubmit}>
@@ -22,12 +23,11 @@ export default function LoginForm() {
       <input
         type="text"
         placeholder="Entrez votre prénom..."
-        value={prenom}
+        value={inputValue}
         onChange={handleChange}
         required
       />
       <button>Accéder à son espace</button>
-      <Link to="/order">Aller à la page de commande</Link>
     </form>
   );
 }
