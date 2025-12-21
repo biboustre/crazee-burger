@@ -1,9 +1,22 @@
+import styled from "styled-components";
 import LoginForm from "./LoginForm";
+import Logo from "../../ui/Logo";
 
 export default function LoginPage() {
-
-
   return (
-    <LoginForm />
+    <LoginPageStyled>
+      <Logo />
+      <LoginForm />
+    </LoginPageStyled>
   );
 }
+
+// Styled Components, pour le style de la page de connexion
+const LoginPageStyled = styled.div`
+  background: red;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+`;

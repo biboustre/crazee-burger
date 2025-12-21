@@ -18,18 +18,31 @@ export default function LoginForm() {
     setInputValue(e.target.value);
   };
   return (
-    <div action="submit" onSubmit={handleSubmit}>
+    <LoginFormStyled action="submit" onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous !</h1>
       <br />
       <h2>Connectez-vous</h2>
-      <input
-        type="text"
-        placeholder="Entrez votre prénom"
-        value={inputValue}
-        onChange={handleChange}
-        required
-      />
-      <button>Accéder à mon espace</button>
-    </div>
+      <section className="container-btn-input">
+        <input
+          type="text"
+          placeholder="Entrez votre prénom"
+          value={inputValue}
+          onChange={handleChange}
+          required
+        />
+        <button>Accéder à mon espace</button>
+      </section>
+    </LoginFormStyled>
   );
-}
+};
+ 
+// Styled Components, pour le style du formulaire de connexion
+const LoginFormStyled = styled.form`
+  background: green;
+
+  .container-btn-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+`;
