@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BsPersonCircle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
@@ -23,23 +24,27 @@ export default function LoginForm() {
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>
-      <section className="container-btn-input">
-        <input
-          type="text"
-          placeholder="Entrez votre prénom"
-          value={inputValue}
-          onChange={handleChange}
-          required
-        />
+      <section className="btn-input-wrapper">
+        <section className="input-icon-wrapper">
+          <BsPersonCircle className="input-icon" aria-hidden="true" />
+          <input
+            type="text"
+            placeholder="Entrez votre prénom"
+            value={inputValue}
+            onChange={handleChange}
+            required
+            aria-label="Prénom"
+            // className="with-icon"
+          />
+        </section>
         <button>Accéder à mon espace</button>
       </section>
     </LoginFormStyled>
   );
-};
- 
+}
+
 // Styled Components, pour le style du formulaire de connexion
 const LoginFormStyled = styled.form`
-  background: green;
   text-align: center;
   padding: 2.5rem 2rem;
   color: white;
@@ -53,20 +58,51 @@ const LoginFormStyled = styled.form`
     margin-bottom: 40px;
   }
 
-  h2{
+  h2 {
     font-size: ${theme.fonts.P4};
     margin: 20px 10px 10px;
   }
 
-  hr{
+  hr {
     /* height: 3px;
     background-color:; */
     border: 1.5px solid ${theme.colors.primary_burger};
   }
 
-  .container-btn-input {
+  .btn-input-wrapper {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    .input-icon-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .input-icon {
+        position: absolute;
+        left: 1rem;
+        color: #888;
+        font-size: 1.1em;
+        pointer-events: none;
+        z-index: 2;
+        border: 1px solid;
+        border-radius: 50%;
+      }
+
+      input {
+        padding-left: 2.5rem;
+        width: 100%;
+        height: 3.2rem;
+        border-radius: 5px;
+        border: none;
+      }
+    }
+
+    button {
+      height: 3.2rem;
+      border-radius: 5px;
+      border: none;
+    }
   }
 `;
