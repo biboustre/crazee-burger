@@ -13,6 +13,10 @@ export default function Logo() {
 
 // Styled Components, pour le style du logo
 const LogoStyled = styled.div`
+<<<<<<< HEAD
+=======
+  border: 1px solid blue;
+>>>>>>> 044d821dc46ea17bb1383e44bdc43c983507678b
   display: flex;
   align-items: center;
   gap: 5px;
