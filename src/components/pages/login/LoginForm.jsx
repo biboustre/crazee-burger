@@ -3,6 +3,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
+import { IoChevronForward } from "react-icons/io5";
 // import styled from "styled-components/macro"; "macro" permet d'avoir des noms de classes plus parlants dans le devtools
 
 export default function LoginForm() {
@@ -37,7 +38,12 @@ export default function LoginForm() {
             // className="with-icon"
           />
         </section>
-        <button>Accéder à mon espace</button>
+        <section className="btn-icon-wrapper">
+          <button className="btn-with-icon">
+            Accéder à mon espace
+            <IoChevronForward aria-hidden="true" />
+          </button>
+        </section>
       </section>
     </LoginFormStyled>
   );
@@ -99,7 +105,12 @@ const LoginFormStyled = styled.form`
       }
     }
 
-    button {
+    .btn-with-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5em; /* espace entre texte et icône */
+      width: 100%;
       height: 3.2rem;
       border-radius: 5px;
       border: none;
