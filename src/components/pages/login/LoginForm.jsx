@@ -41,7 +41,9 @@ export default function LoginForm() {
         <section className="btn-icon-wrapper">
           <button className="btn-with-icon">
             Accéder à mon espace
-            <IoChevronForward aria-hidden="true" />
+            <span className="icon">
+              <IoChevronForward aria-hidden="true" />
+            </span>
           </button>
         </section>
       </section>
@@ -109,11 +111,25 @@ const LoginFormStyled = styled.form`
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 0.5em; /* espace entre texte et icône */
+      gap: 0.5em;
       width: 100%;
       height: 3.2rem;
       border-radius: 5px;
       border: none;
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary_burger};
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: ${theme.colors.white};
+        cursor: pointer;
+        color: ${theme.colors.primary_burger};
+      }
+
+      .icon {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 `;
