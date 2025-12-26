@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
 import { IoChevronForward } from "react-icons/io5";
 import TextInput from "../../ui/TextInput.jsx";
+import PrimaryButton from "../../ui/PrimaryButton.jsx";
 // import styled from "styled-components/macro"; "macro" permet d'avoir des noms de classes plus parlants dans le devtools
 
 export default function LoginForm() {
@@ -30,19 +31,15 @@ export default function LoginForm() {
         <TextInput
           value={inputValue}
           onChange={handleChange}
-          Icon={<BsPersonCircle />}
+          Icon={<BsPersonCircle aria-hidden="true" />}
           placeholder="Entrez votre prénom"
           required
           aria-label="Prénom"
         />
-        <section className="btn-icon-wrapper">
-          <button className="btn-with-icon">
-            Accéder à mon espace
-            <span className="icon">
-              <IoChevronForward aria-hidden="true" />
-            </span>
-          </button>
-        </section>
+        <PrimaryButton
+          text="Accéder à mon espace"
+          Icon={<IoChevronForward aria-hidden="true" className="" />}
+        />
       </section>
     </LoginFormStyled>
   );
@@ -69,39 +66,17 @@ const LoginFormStyled = styled.form`
   }
 
   hr {
-    /* height: 3px;
-    background-color:; */
     border: 1.5px solid ${theme.colors.primary_burger};
   }
 
   .btn-input-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 
-    .btn-with-icon {
+    .icon {
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 0.5em;
-      width: 100%;
-      height: 3.2rem;
-      border-radius: 5px;
-      border: none;
-      color: ${theme.colors.white};
-      background-color: ${theme.colors.primary_burger};
-      transition: background-color 0.3s, color 0.3s;
-
-      &:hover {
-        background-color: ${theme.colors.white};
-        cursor: pointer;
-        color: ${theme.colors.primary_burger};
-      }
-
-      .icon {
-        display: flex;
-        align-items: center;
-      }
     }
   }
 `;
