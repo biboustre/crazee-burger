@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
 import { IoChevronForward } from "react-icons/io5";
+import TextInput from "../../ui/TextInput.jsx";
 // import styled from "styled-components/macro"; "macro" permet d'avoir des noms de classes plus parlants dans le devtools
 
 export default function LoginForm() {
@@ -26,18 +27,14 @@ export default function LoginForm() {
       <hr />
       <h2>Connectez-vous</h2>
       <section className="btn-input-wrapper">
-        <section className="input-icon-wrapper">
-          <BsPersonCircle className="input-icon" aria-hidden="true" />
-          <input
-            type="text"
-            placeholder="Entrez votre prénom"
-            value={inputValue}
-            onChange={handleChange}
-            required
-            aria-label="Prénom"
-            // className="with-icon"
-          />
-        </section>
+        <TextInput
+          value={inputValue}
+          onChange={handleChange}
+          Icon={<BsPersonCircle />}
+          placeholder="Entrez votre prénom"
+          required
+          aria-label="Prénom"
+        />
         <section className="btn-icon-wrapper">
           <button className="btn-with-icon">
             Accéder à mon espace
@@ -81,31 +78,6 @@ const LoginFormStyled = styled.form`
     display: flex;
     flex-direction: column;
     gap: 10px;
-
-    .input-icon-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-
-      .input-icon {
-        position: absolute;
-        left: 1rem;
-        color: #888;
-        font-size: 1.1em;
-        pointer-events: none;
-        z-index: 2;
-        border: 1px solid;
-        border-radius: 50%;
-      }
-
-      input {
-        padding-left: 2.5rem;
-        width: 100%;
-        height: 3.2rem;
-        border-radius: 5px;
-        border: none;
-      }
-    }
 
     .btn-with-icon {
       display: flex;
