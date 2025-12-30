@@ -50,29 +50,30 @@ const LoginFormStyled = styled.form`
   text-align: center;
   padding: 2.5rem 2rem;
   color: white;
-  border-radius: 10px;
+  border-radius: ${theme.borderRadius.round};
   max-width: 500px;
   min-width: 400px;
   font-family: "Amatic SC", cursive;
 
   h1 {
-    font-size: ${theme.fonts.P5};
-    margin-bottom: 40px;
+    font-size: ${theme.fonts.sizes.P5};
+    /* margin-bottom: 40px; ou voir ligne suivante, même résultat */
+    margin-bottom: ${theme.gridUnit * 5}px; /* Utilisé en entreprise dans certains cas */
   }
 
   h2 {
-    font-size: ${theme.fonts.P4};
+    font-size: ${theme.fonts.sizes.P4};
     margin: 20px 10px 10px;
   }
 
   hr {
-    border: 1.5px solid ${theme.colors.primary_burger};
+    border: 1.5px solid ${theme.colors.primary};
   }
 
   .btn-input-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: ${theme.spacing.md};
 
     .icon {
       display: flex;

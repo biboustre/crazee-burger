@@ -12,20 +12,21 @@ export default function Logo() {
 }
 
 // Styled Components, pour le style du logo
-const LogoStyled = styled.div`
+const LogoStyled = styled.section`
   display: flex;
   align-items: center;
   gap: 5px;
-  /* transform: scale(2.5); */
+  transform: scale(2.5);
+  margin-bottom: 40px;
 
   h1 {
     display: inline;
     text-align: center;
     text-transform: uppercase;
-    color: ${theme.colors.primary_burger};
+    color: ${theme.colors.primary};
     font-family: "Amatic SC", cursive;
-    font-weight: ${theme.weights.bold};
-    font-size: ${theme.fonts.P6};
+    font-weight: ${theme.fonts.weights.bold};
+    font-size: ${theme.fonts.sizes.P6};
     /* line-height: 1em; */
     letter-spacing: 1.5px;
   }
@@ -34,6 +35,8 @@ const LogoStyled = styled.div`
     /* height: 60px; */
     /* object-fit: contain;
     object-position: center; */
-    width: 200px;
+    width: 80px;
+    height: 60px;
+    /* margin: 0 ${theme.gridUnit * 2}px; Cette technique est parfois utilisé en entreprise */
   }
 `;
