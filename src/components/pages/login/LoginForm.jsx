@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { BsPersonCircle } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { theme } from "../../../theme/index.js";
+import { IoChevronForward } from "react-icons/io5";
+import TextInput from "../../ui/TextInput.jsx";
+import PrimaryButton from "../../ui/PrimaryButton.jsx";
+// import styled from "styled-components/macro"; "macro" permet d'avoir des noms de classes plus parlants dans le devtools
 
 export default function LoginForm() {
   // State
@@ -16,18 +23,61 @@ export default function LoginForm() {
     setInputValue(e.target.value);
   };
   return (
-    <form action="submit" onSubmit={handleSubmit}>
+    <LoginFormStyled action="submit" onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous !</h1>
-      <br />
+      <hr />
       <h2>Connectez-vous</h2>
-      <input
-        type="text"
-        placeholder="Entrez votre prénom..."
-        value={inputValue}
-        onChange={handleChange}
-        required
-      />
-      <button>Accéder à son espace</button>
-    </form>
+      <section className="btn-input-wrapper">
+        <TextInput
+          value={inputValue}
+          onChange={handleChange}
+          Icon={<BsPersonCircle aria-hidden="true" />}
+          placeholder="Entrez votre prénom"
+          required
+          aria-label="Prénom"
+        />
+        <PrimaryButton
+          text="Accéder à mon espace"
+          Icon={<IoChevronForward aria-hidden="true" className="" />}
+        />
+      </section>
+    </LoginFormStyled>
   );
 }
+
+// Styled Components, pour le style du formulaire de connexion
+const LoginFormStyled = styled.form`
+  text-align: center;
+  padding: 2.5rem 2rem;
+  color: white;
+  border-radius: ${theme.borderRadius.round};
+  max-width: 500px;
+  min-width: 400px;
+  font-family: "Amatic SC", cursive;
+
+  h1 {
+    font-size: ${theme.fonts.sizes.P5};
+    /* margin-bottom: 40px; ou voir ligne suivante, même résultat */
+    margin-bottom: ${theme.gridUnit * 5}px; /* Utilisé en entreprise dans certains cas */
+  }
+
+  h2 {
+    font-size: ${theme.fonts.sizes.P4};
+    margin: 20px 10px 10px;
+  }
+
+  hr {
+    border: 1.5px solid ${theme.colors.primary};
+  }
+
+  .btn-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: ${theme.spacing.md};
+
+    .icon {
+      display: flex;
+      align-items: center;
+    }
+  }
+`;
